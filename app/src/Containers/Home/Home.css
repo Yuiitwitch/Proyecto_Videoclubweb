@@ -1,0 +1,23 @@
+
+.loader {
+    
+    height: 10em;
+}
+
+.displayPeliculas {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.peli {
+    border-radius : 0.2em;
+    border: 0.1em solid black;
+    margin: 0.1em;
+}
+
+.cartel {
+    height: 15em;
+}
