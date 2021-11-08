@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-
+import logo from '../../assets/img/blockbusterlogo.jpg'
 import './Login.css';
 
 
@@ -45,10 +45,17 @@ const Login = () => {
 
     return (
        <div className="designbottoml">
+        <div className="designheadl">
+            <div className="desinglogol">
+                <img className="logol" src={logo}/>
+
+            </div>
+        </div>
         <div className="designLogin">
             {/*<pre>{JSON.stringify(credentials, null,2)}</pre>*/}
-            <input type='email' name='correo' title='correo' onChange={manejadorInputs} lenght='30' />
-            <input type='password' name='clave' title='clave' onChange={manejadorInputs} lenght='30' />
+            <div><strong>Welcome.</strong> Please login. </div>
+            <input className="input" placeholder="email" type='email' name='correo' title='correo' onChange={manejadorInputs} lenght='30' ></input>
+            <input className="input" placeholder="password" type='password' name='clave' title='clave' onChange={manejadorInputs} lenght='30' ></input>
             <div className="sendButton" onClick={() => logeame()}>Login</div>
             <div className="error">{msgError}</div>
         </div>

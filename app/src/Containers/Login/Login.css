@@ -1,22 +1,41 @@
 .designbottoml{
-    background-color: blue;
     height: 58em;
 }
+/*CABECERA */
+.designheadl{
+    height: 7em;
+    background-color:#1f4499;
+}
+.desinglogol{
+    width: 40em;
+    height: 7em;
+}
+.logol{
+    background-color: #1f4499;
+    width: 20em;
+    height: 7em;
+}
 .designLogin{
-    height: 56em;
+    background-color:#1f4499 ;
+    height: 50em;
     display: flex;
     flex-direction: column;
 
     justify-content: center;
     align-items: center;
 }
-
+/*LOGIN */
 .sendButton{
     height: 2em;
     width: 6em;
-
+    margin-top: 2em;
     background-color: green;
     color: white;
 
     border-radius: 0.2em;
+}
+.input{
+    width: 18em;
+    height: 2em;
+    margin-top: 1em;
 }
