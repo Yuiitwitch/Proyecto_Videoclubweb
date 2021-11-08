@@ -1,5 +1,9 @@
-
+.designbottoml{
+    background-color: blue;
+    height: 58em;
+}
 .designLogin{
+    height: 56em;
     display: flex;
     flex-direction: column;
 

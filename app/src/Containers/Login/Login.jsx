@@ -27,7 +27,7 @@ const Login = () => {
 
         try {
 
-            let res = await axios.post("https://aramossanchez-videoclub-api.herokuapp.com/usuarios/login", body);
+            let res = await axios.post("https://dashboard.heroku.com/apps/proyecto-basededatosf/usuarios/login", body);
             setmsgError(`Hola de nuevo ${res.data.usuario.nombre}....`);
 
             localStorage.setItem("datosLogin", JSON.stringify(res.data.usuario));
@@ -44,7 +44,7 @@ const Login = () => {
 
 
     return (
-
+       <div className="designbottoml">
         <div className="designLogin">
             {/*<pre>{JSON.stringify(credentials, null,2)}</pre>*/}
             <input type='email' name='correo' title='correo' onChange={manejadorInputs} lenght='30' />
@@ -52,6 +52,7 @@ const Login = () => {
             <div className="sendButton" onClick={() => logeame()}>Login</div>
             <div className="error">{msgError}</div>
         </div>
+        </div> 
     )
 };
 

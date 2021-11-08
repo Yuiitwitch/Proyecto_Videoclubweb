@@ -1,6 +1,5 @@
-import React, {userState,useEffect} from 'react'
+import React, {useState,useEffect} from 'react'
 import axios from 'axios';
-import pocima from '../../assets/img/pocima.gif'
 import {useNavigate} from 'react-router-dom'
 import './Home.css'
 
@@ -8,7 +7,7 @@ const Home = () => {
 
     let navigate = useNavigate();
 
-    cont [peliculas,setPeliculas] = useState ([]);
+    const [peliculas,setPeliculas] = useState ([]);
 
     useEffect(()=>{
 
@@ -25,9 +24,9 @@ const Home = () => {
 
     const traePeliculas = async () => {
 
-        let res=await axios.get("https://proyecto-basededatosf.herokuapp.com/peliculas")
+        let res=await axios.get("http://proyecto-basededatosf.herokuapp.com/peliculas")
 
-        setPeliculas(res.data.results);
+        setPeliculas(peliculas);
 
     }
     const escogePelicula = (peliculaEscogida) => {
@@ -45,7 +44,7 @@ const Home = () => {
                     peliculas.map((peli) => {
                         return (
                             <div className="peli" key={peli.id}>
-                    
+                                <img alt={peli.id} className="cartel" onClick={()=>escogePelicula(peli)}/>
                             </div>
                         )
                     })
@@ -58,7 +57,7 @@ const Home = () => {
 
         return (
             <div>
-                <img className="loader" src={pocima}/>
+                cargando...
             </div>
         )
     }
