@@ -1,0 +1,18 @@
+
+.designLogin{
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.sendButton{
+    height: 2em;
+    width: 6em;
+
+    background-color: green;
+    color: white;
+
+    border-radius: 0.2em;
+}
