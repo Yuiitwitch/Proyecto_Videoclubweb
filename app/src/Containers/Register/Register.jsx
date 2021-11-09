@@ -10,18 +10,7 @@ const Register = () => {
 
     //Hooks
     const [msgError, setmsgError] = useState("");
-    const [user, setUser] = useState({
-        name: '',
-        surname: '',
-        dni: '',
-        email: '',
-        address: '',
-        city: '',
-        cp: 0,
-        password: '',
-        password2: '',
-        phone: ''
-    });
+    const [user, setUser] = useState();
 
     //Manejadores o Handlers
 
