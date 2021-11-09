@@ -1,12 +1,30 @@
+/*FONDO */
+.designbottonr{
+    height: 100vh;
+    background-color: #1f4499;
+}
+/*HEADER */
+.designheaderr{
+    height: 7em;
+    background-color:#1f4499;
+}
+.desinglogor{
+    width: 40em;
+    height: 7em;
+}
+.logor{
+    background-color: #1f4499;
+    width: 20em;
+    height: 7em;
+}
 
 .designRegister {
 
-    width: 35em;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;}
-
+    align-items: center;
+}
 .botonSend {
     cursor: pointer;
     border-radius: 0.2em;

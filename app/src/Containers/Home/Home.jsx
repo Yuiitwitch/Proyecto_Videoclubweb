@@ -33,7 +33,7 @@ const Home = () => {
         localStorage.setItem("choosenFilm", JSON.stringify(peliculaEscogida));
 
         //redirigire a el perfil de la película....
-        navigate("/profile");
+        // navigate("/profile");
     }
 
     if(peliculas[1]?.title){

@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
+import logor from '../../assets/img/blockbusterlogo.jpg'
 import './Register.css';
 
 const Register = () => {
@@ -84,7 +85,13 @@ const Register = () => {
 
 
     //Renderizado
-    return (
+    return ( 
+        <div className="designbottonr">
+        <div className="designheaderr">
+            <div className="designlogor">
+            <img className="logor" src={logor}/>
+            </div>
+        </div>
         <div className="designRegister">
             <pre>{JSON.stringify(user, null, 2)}</pre>
             <input type='text' name='name' title='name' onChange={userHandler} lenght='30' placeholder='Nombre' />
@@ -99,6 +106,7 @@ const Register = () => {
             <input type='text' name='phone' title='phone' onChange={userHandler} lenght='20' placeholder='Teléfono' />
             <div className="botonSend" onClick={() => enviaDatosRegistro()}>Registrame</div>
             <div>{msgError}</div>
+        </div>
         </div>
     )
 };
