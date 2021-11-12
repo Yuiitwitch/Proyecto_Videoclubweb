@@ -1,29 +1,18 @@
 /*FONDO */
-.designbottonr{
+.designBottonr{
+    background-image: url(../../assets/img/fondoregister.jpg);
+    background-size: cover;
     height: 100vh;
     background-color: #1f4499;
 }
-/*HEADER */
-.designheaderr{
-    height: 7em;
-    background-color:#1f4499;
-}
-.desinglogor{
-    width: 40em;
-    height: 7em;
-}
-.logor{
-    background-color: #1f4499;
-    width: 20em;
-    height: 7em;
-}
-
 .designRegister {
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-top: 10em;
+    padding-left: 40em;
 }
 .botonSend {
     cursor: pointer;
@@ -31,13 +20,19 @@
 
     height: 2em;
     width: 6em;
+    margin-top: 2em;
 
-    background-color: red;
+    background-color: yellow;
     transition: 0.4s;
 
 }
-
-.botonSend:hover {
-    transition: 0.4s;
-    background-color: darkred;
+/*DISEÑO DE LOS INPUTS */
+.inputRegister{
+    border-radius: 0.5em;
+    width: 18em;
+    height: 2em;
+    margin-top: 1em;
 }
+/*IMAGEN FONDO */
+
+

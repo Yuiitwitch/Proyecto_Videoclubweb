@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { LOGIN } from '../../redux/types';
 import logo from '../../assets/img/blockbusterlogo.jpg'
+
 import './Login.css';
 
 
 const Login = () => {
 
-    const history = useNavigate();
 
     //Hooks
     const [msgError, setmsgError] = useState("");
@@ -18,7 +19,7 @@ const Login = () => {
         setCredentials({ ...credentials, [e.target.name]: e.target.value });
     }
 
-    const logeame = async () => {
+    const logeame = async (props) => {
 
         let body = {
             correo: credentials.correo,
@@ -30,13 +31,12 @@ const Login = () => {
             let res = await axios.post("https://dashboard.heroku.com/apps/proyecto-basededatosf/usuarios/login", body);
             setmsgError(`Hola de nuevo ${res.data.usuario.nombre}....`);
 
-            localStorage.setItem("datosLogin", JSON.stringify(res.data.usuario));
+            let datos = res.data;
 
-            setTimeout(() => {
-                history("/profile");
-            }, 4000);
+            props.dispatch({type:LOGIN,payload:datos});
+
         } catch (error) {
-            setmsgError("Error al logearme");
+            setmsgError("Wrong username or password");
 
         }
 
@@ -44,23 +44,22 @@ const Login = () => {
 
 
     return (
-       <div className="designbottoml">
+
+        <div className="designbottoml">
         <div className="designheadl">
             <div className="desinglogol">
                 <img className="logol" src={logo}/>
-
             </div>
         </div>
         <div className="designLogin">
-            {/*<pre>{JSON.stringify(credentials, null,2)}</pre>*/}
             <div><strong>Welcome.</strong> Please login. </div>
             <input className="input" placeholder="email" type='email' name='correo' title='correo' onChange={manejadorInputs} lenght='30' ></input>
             <input className="input" placeholder="password" type='password' name='clave' title='clave' onChange={manejadorInputs} lenght='30' ></input>
-            <div className="sendButton" onClick={() => logeame()}>Login</div>
             <div className="error">{msgError}</div>
+            <div className="sendButton" onClick={() => logeame()}>Login</div>
         </div>
-        </div> 
+        </div>
     )
 };
 
-export default Login;
+export default connect()(Login);

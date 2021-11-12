@@ -1,0 +1,16 @@
+.designBoton{
+    height: 1.5em;
+    width: 5em;
+
+    margin: 1em;
+
+    background-color: transparent;
+    border-radius: 0.2em;
+    transition: 0.4s;
+}
+
+.designBoton:hover{
+    transition: 0.4s;
+    background-color: white;
+    cursor: pointer;
+}

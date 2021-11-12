@@ -24,19 +24,21 @@
     justify-content: center;
     align-items: center;
 }
+
 /*LOGIN */
 .sendButton{
     height: 2em;
     width: 6em;
+
     margin-top: 2em;
-    background-color: green;
-    color: white;
+    background-color:yellow;
+    color: black;
 
     border-radius: 0.2em;
 }
 .input{
-    border-radius: 0.6em;
+    border-radius: 0.5em;
     width: 18em;
     height: 2em;
     margin-top: 1em;
-}
+} 
