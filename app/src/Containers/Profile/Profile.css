@@ -1,7 +1,27 @@
 
-.profilePelicula {
+.profileUser{
+    background-color: #1f4499;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border: 0.2em solid #1f4499;
+    margin: 1em;
+
+}
+.invisible{
+    height: 1.5em;
+}
+
+.update{
+    background-color: yellow;
+    border: 0.2em solid transparent;
+    border-radius: 0.5em;
+    width: 3.5em;
+}
+.unLog{
+    padding-top: 15em;
+    color: white;
+    border: 0.2em solid transparent;
 }

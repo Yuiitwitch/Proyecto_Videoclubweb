@@ -5,35 +5,37 @@ import { LOGIN } from '../../redux/types';
 import logo from '../../assets/img/blockbusterlogo.jpg'
 
 import './Login.css';
+import { useNavigate } from 'react-router';
 
 
-const Login = () => {
+const Login = (props) => {
 
-
+    const navigate = useNavigate();
     //Hooks
     const [msgError, setmsgError] = useState("");
-    const [credentials, setCredentials] = useState({ correo: '', clave: '' });
+    const [credentials, setCredentials] = useState({ correo: '', contraseña: '' });
 
     //Handler o manejador
     const manejadorInputs = (e) => {
         setCredentials({ ...credentials, [e.target.name]: e.target.value });
     }
 
-    const logeame = async (props) => {
+    const logeame = async () => {
 
         let body = {
             correo: credentials.correo,
-            clave: credentials.clave
+            contraseña: credentials.contraseña
         };
-
+        console.log(body)
         try {
 
-            let res = await axios.post("https://dashboard.heroku.com/apps/proyecto-basededatosf/usuarios/login", body);
+            let res = await axios.post("https://proyecto-basededatosf.herokuapp.com/usuarios/login", body);
             setmsgError(`Hola de nuevo ${res.data.usuario.nombre}....`);
 
             let datos = res.data;
 
             props.dispatch({type:LOGIN,payload:datos});
+            navigate("/");
 
         } catch (error) {
             setmsgError("Wrong username or password");
@@ -41,7 +43,6 @@ const Login = () => {
         }
 
     }
-
 
     return (
 
@@ -53,8 +54,8 @@ const Login = () => {
         </div>
         <div className="designLogin">
             <div><strong>Welcome.</strong> Please login. </div>
-            <input className="input" placeholder="email" type='email' name='correo' title='correo' onChange={manejadorInputs} lenght='30' ></input>
-            <input className="input" placeholder="password" type='password' name='clave' title='clave' onChange={manejadorInputs} lenght='30' ></input>
+            <input className="input" placeholder="correo" type='correo' name='correo' title='correo' onChange={manejadorInputs} lenght='30' ></input>
+            <input className="input" placeholder="contraseña" type='contraseña' name='contraseña' title='clave' onChange={manejadorInputs} lenght='30' ></input>
             <div className="error">{msgError}</div>
             <div className="sendButton" onClick={() => logeame()}>Login</div>
         </div>

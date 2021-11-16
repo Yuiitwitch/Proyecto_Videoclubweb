@@ -1,21 +1,31 @@
-
+/* 
 .loader {
     
     height: 10em;
-}
-
-.displayPeliculas {
+} */
+.displayHome{
+    background-color: #1f4499 ;
+    width: 100vw;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    align-items: flex-start;
     justify-content: space-evenly;
-    align-items: center;
+    flex-wrap: wrap;
 }
+.generalPeliculas{
+    background-color: #1f4499;
+}
+.designPeliculas{
+    background-color: lightblue;
+    width: 30em;
+    border: 0.1em solid #1f4499;
+    border-radius: 0.6em;
+    padding: 1em;
+    margin: 1em;
 
-.peli {
-    border-radius : 0.2em;
-    border: 0.1em solid black;
-    margin: 0.1em;
+}
+.tituloPeliculas{
+    background-color: #1f4499
 }
 
 .cartel {

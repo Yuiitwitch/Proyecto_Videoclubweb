@@ -40,23 +40,19 @@ const Register = () => {
            return;
         };
         
-        if (! /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(user.email) ) {
-           setmsgError("Email Incorrecto");
-           return;
-        };
+        // if (! /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(user.email) ) {
+        //    setmsgError("Email Incorrecto");
+        //    return;
+        // };
 
         //Generación del body
         let body = {
-            name: user.name,
-            surname: user.surname,
-            dni: user.dni,
-            email: user.email,
-            address: user.address,
-            city: user.city,
-            cp: user.cp,
-            password: user.password,
-            password2: user.password2,
-            phone: user.phone
+            nombre: user.nombre,
+            apellidos: user.apellidos,
+            correo: user.correo,
+            direccion: user.direccion,
+            poblacion: user.poblacion,
+            contraseña: user.contraseña,
         }
 
         //Conexion a axios y envio de datos
@@ -65,9 +61,9 @@ const Register = () => {
         
         try {
 
-            let res = await axios.post("https://dashboard.heroku.com/apps/proyecto-basededatosf/usuarios/registro", body);
+            let res = await axios.post("https://proyecto-basededatosf.herokuapp.com/usuarios/registro", body);
 
-            //Guardado de datos en localStorage
+            //Guardado de datos en redux
             
 
         } catch (error) {
@@ -79,7 +75,7 @@ const Register = () => {
         setmsgError("Usuario registrado con éxito");
         
         setTimeout(()=>{
-            history("/");
+            history("/Login");
         },4000);
     };
 
@@ -88,16 +84,12 @@ const Register = () => {
     return (
         <div className="designBottonr">
         <div className="designRegister">
-            <input className="inputRegister" type='text' name='name' title='name' onChange={userHandler} lenght='30' placeholder='Nombre' />
-            <input className="inputRegister" type='text' name='surname' title='surname' onChange={userHandler} lenght='30' placeholder='Apellido' />
-            <input className="inputRegister" type='text' name='dni' title='dni' onChange={userHandler} lenght='10' placeholder='DNI' />
-            <input className="inputRegister" type='email' name='email' title='email' onChange={userHandler} lenght='30' placeholder='Email' />
-            <input className="inputRegister" type='text' name='address' title='address' onChange={userHandler} lenght='30' placeholder='Direccion' />
-            <input className="inputRegister" type='text' name='city' title='city' onChange={userHandler} lenght='30' placeholder='Ciudad' />
-            <input className="inputRegister" type='number' name='cp' title='cp' onChange={userHandler} lenght='5' placeholder='C.Postal' />
-            <input className="inputRegister" type='text' name='password' title='password' onChange={userHandler} lenght='30' placeholder='Password' />
-            <input className="inputRegister" type='text' name='password2' title='password2' onChange={userHandler} lenght='30' placeholder='Repite Password' />
-            <input className="inputRegister" type='text' name='phone' title='phone' onChange={userHandler} lenght='20' placeholder='Teléfono' />
+            <input className="inputRegister" type='text' name='nombre' title='nombre' onChange={userHandler} lenght='30' placeholder='Nombre' />
+            <input className="inputRegister" type='text' name='apellidos' title='apellidos' onChange={userHandler} lenght='30' placeholder='Apellido' />
+            <input className="inputRegister" type='text' name='correo' title='correo' onChange={userHandler} lenght='30' placeholder='Email' />
+            <input className="inputRegister" type='text' name='direccion' title='direccion' onChange={userHandler} lenght='30' placeholder='Direccion' />
+            <input className="inputRegister" type='text' name='poblacion' title='poblacion' onChange={userHandler} lenght='30' placeholder='Ciudad' />
+            <input className="inputRegister" type='text' name='contraseña' title='contraseña' onChange={userHandler} lenght='30' placeholder='contraseña' />
             <div className="botonSend" onClick={() => enviaDatosRegistro()}>Registrame</div>
             <div>{msgError}</div>
         </div>

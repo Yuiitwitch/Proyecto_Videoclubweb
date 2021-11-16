@@ -1,4 +1,4 @@
-import {LOGIN, LOGOUT} from '../types';
+import {LOGIN, LOGOUT , UPDATE_USER} from '../types';
 
 const initialState = {
     token : '',
@@ -14,8 +14,11 @@ const credentialsReducer = (state = initialState, action) => {
         //Ejemplo de reestablecimiento o borrado de datos
         case LOGOUT : 
             return initialState;
+        
+        case UPDATE_USER :
+            return {...state , usuario :action.payload};
             
-        default :
+        default : 
             return state
     }
 }
