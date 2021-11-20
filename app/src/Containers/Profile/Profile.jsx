@@ -2,12 +2,15 @@
 import { connect } from 'react-redux';
 import React, { useState, useEffect } from 'react';
 import { LOGOUT , UPDATE_USER } from '../../redux/types';
+import { useNavigate } from 'react-router-dom';
 import Header from '../../Components/Header/Header';
 import axios from 'axios';
 import './Profile.css';
 // import Header from '../../Components/Header/Header';
 
 const Profile = (props) => {
+
+    const navigate = useNavigate();
 
     const [userData, setUserData] = useState(props.credentials.usuario);
 
@@ -18,6 +21,8 @@ const Profile = (props) => {
     const logOut = () => {
         //funcion para realizar el logout
         props.dispatch({ type: LOGOUT })
+
+        navigate("/login")
     }
 
     useEffect(() => {

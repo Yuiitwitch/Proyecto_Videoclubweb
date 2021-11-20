@@ -46,14 +46,14 @@ const Login = (props) => {
 
     return (
 
-        <div className="designbottoml">
-        <div className="designheadl">
-            <div className="desinglogol">
+        <div className="designBottoml">
+        <div className="designHeadl">
+            <div className="desingLogol">
                 <img className="logol" src={logo}/>
             </div>
         </div>
         <div className="designLogin">
-            <div><strong>Welcome.</strong> Please login. </div>
+            <div><h1><strong>Welcome.</strong> Please login.</h1> </div>
             <input className="input" placeholder="correo" type='correo' name='correo' title='correo' onChange={manejadorInputs} lenght='30' ></input>
             <input className="input" placeholder="contraseña" type='contraseña' name='contraseña' title='clave' onChange={manejadorInputs} lenght='30' ></input>
             <div className="error">{msgError}</div>

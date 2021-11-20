@@ -2,11 +2,11 @@
     height: 58em;
 }
 /*CABECERA */
-.designheadl{
+.designHeadl{
     height: 7em;
     background-color:#1f4499;
 }
-.desinglogol{
+.desingLogol{
     width: 40em;
     height: 7em;
 }
@@ -38,7 +38,7 @@
 }
 .input{
     border-radius: 0.5em;
-    width: 18em;
-    height: 2em;
+    width: 25em;
+    height: 2.5em;
     margin-top: 1em;
-} 
+}
