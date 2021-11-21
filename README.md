@@ -1,8 +1,8 @@
 # Proyecto_Videoclubweb   🚀
 
  ![image](https://user-images.githubusercontent.com/86298325/142771716-07be080e-f1c5-4b63-941b-681ade84c460.png)
-
-Creación de proyecto de un Videoclub por correo, en la que los usuarios pueden alquilar peliculas.
+ 
+ Basado en el mitiquisimo videoclub de los 80. En la que creamos una aplicacion de alquiler de peliculas
 
 Este proyecto viene en conjunto con el proyecto de la base de datos  https://github.com/Yuiitwitch/Proyecto_basededatosf . En este proyecto hemos creado el frontend del videoclub.
 
