@@ -87,8 +87,7 @@ const Register = () => {
         <p>¿Quieres poder alquilar los ultimos estrenos y peliculas antiguas que no encontraras
             en el cine?</p><p>Somos un Videoclub por correo en el cual tu alquilas la peliculas y
                 te la mandamos a tu casa por correo.</p><p>PUEDES REGISTRATE AHORA MISMO RELLENANDO EL FORMULARIO</p></div>
-        <div className="designRegister">
-            <div>
+            <div className="generalRegister">
             <h1 class="signupRegister">Sign Up</h1>
             <input className="inputRegister" type='text' name='nombre' title='nombre' onChange={userHandler} lenght='30' placeholder='Nombre' />
             <input className="inputRegister" type='text' name='apellidos' title='apellidos' onChange={userHandler} lenght='30' placeholder='Apellido' />
@@ -99,7 +98,6 @@ const Register = () => {
             <div className="botonSend" onClick={() => enviaDatosRegistro()}>Create Account</div>
             <div>{msgError}</div>
             </div>
-        </div>
         </div>
     )
 };

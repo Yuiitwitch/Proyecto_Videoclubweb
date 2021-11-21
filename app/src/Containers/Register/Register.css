@@ -1,9 +1,35 @@
 /*FONDO */
 .designBottonr{
-    background-image: url(../../assets/img/fondoregister.jpg);
+    background-color: #1f4499;
     background-size: cover;
     background-color: #1f4499;
-    height: 100vh;
+    height: 98vh;
+}
+/*DISEÑO DE LOS INPUTS */
+.generalRegister{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.signupRegister{
+    color: whitesmoke;
+}
+.inputRegister{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: white 0.2em solid;
+    border-radius: 0.5em;
+    width: 23em;
+    height: 2em;
+    margin-top: 1em;
+}
+/*IMAGEN FONDO */
+.textoRegister{
+    color: whitesmoke;
+    font-size: xx-large;
 }
 
 .botonSend {
@@ -18,24 +44,3 @@
     transition: 0.4s;
 
 }
-/*DISEÑO DE LOS INPUTS */
-.signupRegister{
-    color: whitesmoke;
-}
-.inputRegister{
-    border-radius: 0.5em;
-    width: 23em;
-    height: 2em;
-    margin-top: 1em;
-}
-/*IMAGEN FONDO */
-.textoRegister{
-
-    width: 30em;
-    height: 50vh;
-    justify-content: center;
-    align-items: center;
-    font-size: larger;
-    color: White
-}
-
