@@ -42,3 +42,14 @@ HOME
 ![image](https://user-images.githubusercontent.com/86298325/142773143-4345547b-f2a0-44a8-bb9d-19e124b9aab4.png)
 
 Aquí podremos visualizar las peliculas a alquilar.
+
+REGISTRE
+
+![image](https://user-images.githubusercontent.com/86298325/142775888-a410c0f8-d592-4767-be79-2233752f4d3d.png)
+
+PROFILE
+
+![image](https://user-images.githubusercontent.com/86298325/142809091-2de81e2c-e0a7-4c16-8f1f-c73bfb2428c2.png)
+
+
+
