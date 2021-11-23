@@ -40,11 +40,10 @@ const Profile = (props) => {
         correo: userData.correo,
         direccion: userData.direccion,
         poblacion: userData.poblacion,
-        contraseña: userData.contraseña,
     }
 
     try{
-
+        console.log(props.credentials.usuario)
     let res = await axios.put(`https://proyecto-basededatosf.herokuapp.com/usuarios/${props.credentials.usuario}`, body);
 
      //guardado de datos en redux
@@ -62,12 +61,12 @@ const Profile = (props) => {
             <div className="profileUser">
                 <div><h1>Profile User</h1></div>
                 {/* <pre>{JSON.stringify(userData, null, 2)}</pre> */}
-                <div className="user"><input value={userData?.nombre || false} placeholder="nombre"  name="nombre" onChange={manejaInputs}/></div>
-                <div className="user"><input value={userData?.apellidos || false} placeholder="apellidos" name="apellidos" onChange={manejaInputs}/></div>
-                <div className="user"><input value={userData?.correo || false} placeholder="correo" name="correo" onChange={manejaInputs}/></div>
-                <div className="user"><input value={userData?.direccion || false} placeholder="direccion" name="direccion" onChange={manejaInputs}/></div>
-                <div className="user"><input value={userData?.poblacion || false} placeholder="poblacion" name="poblacion" onChange={manejaInputs}/></div>
-                <div className="user"><input value={userData?.contraseña || false} placeholder="contraseña" name="contraseña" onChange={manejaInputs}/></div>
+                <div className="user"><input value={userData?.nombre || ""} placeholder="nombre"  name="nombre" onChange={manejaInputs}/></div>
+                <div className="user"><input value={userData?.apellidos || ""} placeholder="apellidos" name="apellidos" onChange={manejaInputs}/></div>
+                <div className="user"><input value={userData?.correo || ""} placeholder="correo" name="correo" onChange={manejaInputs}/></div>
+                <div className="user"><input value={userData?.direccion || ""} placeholder="direccion" name="direccion" onChange={manejaInputs}/></div>
+                <div className="user"><input value={userData?.poblacion || ""} placeholder="poblacion" name="poblacion" onChange={manejaInputs}/></div>
+                {/* <div className="user"><input value={userData?.contraseña || ""} name="contraseña" onChange={manejaInputs}/></div> */}
                 <div className="invisible"></div> 
                 <div className="update" onClick={() => enviaDatosPerfil()}>SAVE</div>
                 <div className="unLog" onClick={() => logOut()}>LOGOUT</div>

@@ -55,7 +55,7 @@ const Login = (props) => {
         <div className="designLogin">
             <div><h1><strong>Welcome.</strong> Please login.</h1> </div>
             <input className="input" placeholder="correo" type='correo' name='correo' title='correo' onChange={manejadorInputs} lenght='30' ></input>
-            <input className="input" placeholder="contraseña" type='contraseña' name='contraseña' title='clave' onChange={manejadorInputs} lenght='30' ></input>
+            <input className="input" placeholder="contraseña" type='password' name='contraseña' title='clave' onChange={manejadorInputs} maxlength='8' ></input>
             <div className="error">{msgError}</div>
             <div className="sendButton" onClick={() => logeame()}>Login</div>
         </div>

@@ -3,18 +3,18 @@ import React from 'react';
 import { connect } from 'react-redux';
 import './Header.css';
 import Boton from '../Boton/Boton'
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import logo from '../../assets/img/blockbusterlogo.jpg'
-import { Navigate } from 'react-router';
+// import { Navigate } from 'react-router';
 
 const Header = (props) => {
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
-    const cambioPantalla = (from) =>{
-        navigate(from)
-    };
-        console.log(props.credentials)
+    // const cambioPantalla = (from) =>{
+    //     navigate(from)
+    // };
+        // console.log(props.credentials)
     if (props?.credentials?.usuario.rol == "usuario"){
     return (
         
@@ -38,11 +38,13 @@ const Header = (props) => {
         </div>
     )
         }
-    return(
-        <div>
-            hola
-        </div>
-    )
+    if(props?.credentials?.usuario.rol == ""){
+        return(
+            <div>
+                No existe este usuario.
+            </div>
+        )
+    }
 }
 
 export default connect((state)=>({

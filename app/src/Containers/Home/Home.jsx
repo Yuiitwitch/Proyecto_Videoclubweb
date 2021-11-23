@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
-// import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 import Header from '../../Components/Header/Header';
 // import { loadMovies } from '../../redux/types'
 import './Home.css'
@@ -8,8 +8,10 @@ import './Home.css'
 const Home = () => {
 
     const [peliculas, setPeliculas] = useState([]);
+    const [msgError, setmsgError] = useState("");
 
-    // const history = useNavigate(); //para cambiar de pagina
+
+    const navigate = useNavigate();
 
     useEffect(() => {
 
@@ -24,6 +26,23 @@ const Home = () => {
 
 
     }
+    const alquilarPelicula = async (pelicula) =>{
+        const body = {
+            id: pelicula.id,
+            titulo: pelicula.titulo,
+            genero: pelicula.genero,
+            actor: pelicula.genero
+
+        }
+        try{
+            let res = await axios.post("https://proyecto-basededatosf.herokuapp.com/pedidos", body);
+            navigate("/perfil");
+
+        }catch (error){
+            setmsgError("No es posible alquilar es pelicula si no esta logeado");
+        }
+    }
+
 
     return (
         <div className="generalPeliculas">
@@ -39,6 +58,7 @@ const Home = () => {
                             <p>Title:{peli.titulo}</p>
                             <p>Génre:{peli.genero}</p>
                             <p>Actor:{peli.actor}</p>
+                            <div className="sendButton" onClick={() => alquilarPelicula()}>Alquilar</div>
                         </div>
                     </div>
                     
