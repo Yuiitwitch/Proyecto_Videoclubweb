@@ -2,14 +2,16 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../Components/Header/Header';
+import { connect } from 'react-redux';
+
 // import { loadMovies } from '../../redux/types'
 import './Home.css'
 
-const Home = () => {
+const Home = (props) => {
 
     const [peliculas, setPeliculas] = useState([]);
     const [msgError, setmsgError] = useState("");
-
+    const [query, setQuery] = useState("");
 
     const navigate = useNavigate();
 
@@ -26,41 +28,54 @@ const Home = () => {
 
 
     }
-    const alquilarPelicula = async (pelicula) =>{
+    const alquilarPelicula = async (peliculas) =>{
+        console.log(peliculas)
         const body = {
-            id: pelicula.id,
-            titulo: pelicula.titulo,
-            genero: pelicula.genero,
-            actor: pelicula.genero
+            peliculaId: peliculas.id,
+            usuarioId: props.credentials.usuario.id,
+            fecha_alquiler: new Date(),
+            fecha_devolucion: new Date()
 
         }
-        try{
+        console.log(body)
             let res = await axios.post("https://proyecto-basededatosf.herokuapp.com/pedidos", body);
-            navigate("/perfil");
-
-        }catch (error){
-            setmsgError("No es posible alquilar es pelicula si no esta logeado");
-        }
+            navigate("/profile");
     }
-
-
+    const filtrar=(peliculas)=>{
+        if(query === ""){
+            return peliculas;
+        }else if (peliculas.titulo.toLowerCase().includes(query.toLowerCase())) {
+            return peliculas;
+        }
+        // let Busqueda = peliculas.titulo.filter((peliculas)=>{
+        //     if(peliculas.titulo.toString().toLowerCase().includes(peliculas.toLowerCase())){
+        //         return peliculas;
+        //     }
+        // })
+    }
     return (
         <div className="generalPeliculas">
             <Header />
             <h1 className="tituloPeliculas"><span>LIST OF MOVIES</span></h1>
+
+            <input id="buscador" placeholder ="Buscador de peliculas" onChange={event => setQuery(event.target.value)}/>
+            <button onClick={() => filtrar()}>Buscar</button>
             <div className="displayHome">
-            {peliculas.map((peli) => {
-                return (
+            
+            {peliculas.map((pelicula) => {
+                return( 
                     
-                    <div className="designPeliculas" key={peli.id}>
+                
+                    <div className="designPeliculas" key={pelicula.id}>
                         <div className="displayPeliculas">
-                            <p>ID movie: {peli.id}</p>
-                            <p>Title:{peli.titulo}</p>
-                            <p>Génre:{peli.genero}</p>
-                            <p>Actor:{peli.actor}</p>
-                            <div className="sendButton" onClick={() => alquilarPelicula()}>Alquilar</div>
+                            <p>ID movie: {pelicula.id}</p>
+                            <p>Title:{pelicula.titulo}</p>
+                            <p>Génre:{pelicula.genero}</p>
+                            <p>Actor:{pelicula.actor}</p>
+                            <div className="sendButton" onClick={() => alquilarPelicula(pelicula)}>Rent</div>
                         </div>
                     </div>
+                    
                     
                 )
             })}
@@ -71,4 +86,6 @@ const Home = () => {
 
 }
 
-export default Home;
+export default connect((state)=>({
+    credentials: state.credentials,
+}))(Home);
