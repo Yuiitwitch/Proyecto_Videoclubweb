@@ -34,6 +34,7 @@ const Header = (props) => {
             <Boton destino="Login" url="/Login"/>
             <Boton destino="Register" url="/Register" />
             <Boton destino="Profile" url="/Profile" />
+            <Boton destino="Admin" url="/Admin" />
 
         </div>
     )

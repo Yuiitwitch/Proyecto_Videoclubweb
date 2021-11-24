@@ -28,7 +28,7 @@ const Home = (props) => {
 
 
     }
-    const alquilarPelicula = async (peliculas) =>{
+    const alquilarPelicula = async (peliculas) =>{   //FUNCION PARA ALQUILAR PELICULAS
         console.log(peliculas)
         const body = {
             peliculaId: peliculas.id,
@@ -40,8 +40,9 @@ const Home = (props) => {
         console.log(body)
             let res = await axios.post("https://proyecto-basededatosf.herokuapp.com/pedidos", body);
             navigate("/profile");
+        
     }
-    const filtrar=(peliculas)=>{
+    const filtrar=(peliculas)=>{  //BUSCADOR
         if(query === ""){
             return peliculas;
         }else if (peliculas.titulo.toLowerCase().includes(query.toLowerCase())) {

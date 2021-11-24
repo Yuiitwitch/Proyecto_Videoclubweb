@@ -1,17 +1,15 @@
 
 .profileUser{
     background-color: #1f4499;
-    height: 100vh;
+    height: 86vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     border: 0.2em solid #1f4499;
-    margin: 1em;
 
 }
 .invisible{
-    height: 1.5em;
+    height: 0.2em;
 }
 
 .update{
@@ -21,7 +19,21 @@
     width: 3.5em;
 }
 .unLog{
-    padding-top: 15em;
     color: white;
     border: 0.2em solid transparent;
+}
+.gpedidosUser{
+    float: left;
+}
+.pedidosUser{
+    border: 0.1em solid whitesmoke;
+    color: whitesmoke;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 6em;
+}
+.pedidoColor{
+    color:whitesmoke;
 }
