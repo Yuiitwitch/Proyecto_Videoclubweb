@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
-import fotofondo from '../../assets/img/fondoregister.jpg'
 import './Register.css';
 
 const Register = () => {
@@ -64,7 +63,7 @@ const Register = () => {
             let res = await axios.post("https://proyecto-basededatosf.herokuapp.com/usuarios/registro", body);
 
             //Guardado de datos en redux
-            
+            setUser(res.data)
 
         } catch (error) {
             console.log(error)

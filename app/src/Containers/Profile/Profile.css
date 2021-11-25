@@ -23,16 +23,16 @@
     border: 0.2em solid transparent;
 }
 .gpedidosUser{
+    border: 0.1em solid whitesmoke;
     float: left;
 }
 .pedidosUser{
-    border: 0.1em solid whitesmoke;
     color: whitesmoke;
     display:flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    height: 6em;
+    height: 2em;
 }
 .pedidoColor{
     color:whitesmoke;

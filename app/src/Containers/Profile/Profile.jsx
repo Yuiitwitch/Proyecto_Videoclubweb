@@ -31,6 +31,7 @@ const Profile = (props) => {
         setUserData(props.credentials.usuario);
     }, [props.credentials]);
 
+    //funcion para recibir los datos de pedidos en el perfil de usuario
     const recibePedidos = async () => {
 
         let res = await axios.get(`https://proyecto-basededatosf.herokuapp.com/pedidos/userid/${props.credentials.usuario.id}`);
@@ -67,20 +68,18 @@ const Profile = (props) => {
             <Header />
             <div className="profileUser">
                 <div><h1>Profile User</h1></div>
-                {/* <pre>{JSON.stringify(userData, null, 2)}</pre> */}
                 <div className="user"><input value={userData?.nombre || ""} placeholder="nombre" name="nombre" onChange={manejaInputs} /></div>
                 <div className="user"><input value={userData?.apellidos || ""} placeholder="apellidos" name="apellidos" onChange={manejaInputs} /></div>
                 <div className="user"><input value={userData?.correo || ""} placeholder="correo" name="correo" onChange={manejaInputs} /></div>
                 <div className="user"><input value={userData?.direccion || ""} placeholder="direccion" name="direccion" onChange={manejaInputs} /></div>
                 <div className="user"><input value={userData?.poblacion || ""} placeholder="poblacion" name="poblacion" onChange={manejaInputs} /></div>
-                {/* <div className="user"><input value={userData?.contraseña || ""} name="contraseña" onChange={manejaInputs}/></div> */}
                 <div className="invisible"></div>
                 <div className="update" onClick={() => enviaDatosPerfil()}>SAVE</div>
                 <div className="unLog" onClick={() => logOut()}>LOGOUT</div>
             <div className="gpedidosUser">
             <h1>LISTA PEDIDOS</h1>
             {pedidos.map((pedido) => {
-                
+                //cuandro donde aparecen los pedidos en el perfil de usuario
                     return (
                         
                         <div className="pedidosUser" key={pedido.id}>

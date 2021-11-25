@@ -10,7 +10,6 @@ import './Home.css'
 const Home = (props) => {
 
     const [peliculas, setPeliculas] = useState([]);
-    const [msgError, setmsgError] = useState("");
     const [query, setQuery] = useState("");
 
     const navigate = useNavigate();
