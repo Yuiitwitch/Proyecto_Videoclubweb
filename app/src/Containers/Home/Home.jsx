@@ -10,7 +10,6 @@ import './Home.css'
 const Home = (props) => {
 
     const [peliculas, setPeliculas] = useState([]);
-    const [query, setQuery] = useState("");
 
     const navigate = useNavigate();
 
@@ -41,24 +40,19 @@ const Home = (props) => {
             navigate("/profile");
         
     }
-    const filtrar=(peliculas)=>{  //BUSCADOR
-        if(query === ""){
-            return peliculas;
-        }else if (peliculas.titulo.toLowerCase().includes(query.toLowerCase())) {
-            return peliculas;
-        }
-        // let Busqueda = peliculas.titulo.filter((peliculas)=>{
-        //     if(peliculas.titulo.toString().toLowerCase().includes(peliculas.toLowerCase())){
-        //         return peliculas;
-        //     }
-        // })
+    const filtrar=async ()=>{  //BUSCADOR
+        let input = document.getElementById("buscador").value;
+        let res = await axios.get("https://proyecto-basededatosf.herokuapp.com/peliculas/titulo/"+input);
+       
+        setPeliculas(res.data);
+
     }
     return (
         <div className="generalPeliculas">
-            <Header />
+            <Header/>
             <h1 className="tituloPeliculas"><span>LIST OF MOVIES</span></h1>
 
-            <input id="buscador" placeholder ="Buscador de peliculas" onChange={event => setQuery(event.target.value)}/>
+            <input id="buscador" placeholder ="Buscador de peliculas"/>
             <button onClick={() => filtrar()}>Buscar</button>
             <div className="displayHome">
             

@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { LOGOUT } from '../../redux/types';
 import Header from '../../Components/Header/Header';
 import axios from 'axios';
+import './Admin.css'
 
 
 const Admin = (props) => {
@@ -57,17 +58,20 @@ const Admin = (props) => {
     }
     return (
         <div>
-            <Header />
+            <Header/>
             <div className="profileUser">
                 {usuarios.map((usuario) => {
+                    // donde aparecen los usuarios en la vista admin
                     return (
-                        <div key={usuario.id}>
-                            <div className="pedidosUser"><h1>Lista de usuarios registrados</h1></div>
+                        
+                        <div className="pedidosUser"><h1>LISTA DE USUARIOS REGISTRADOS</h1>
+                        <div className="generalUsuarios" key={usuario.id}>
                             <p className="pedidoColor">id: {usuario.id}</p>
                             <p className="pedidoColor">Nombre: {usuario.nombre}</p>
                             <p className="pedidoColor">Apellidos:{usuario.apellidos}</p>
                             <p className="pedidoColor">Correo:{usuario.correo}</p>
                             <p className="pedidoColor">Direccion:{usuario.direccion}</p>
+                        </div>
                         </div>
                     )
 
@@ -75,26 +79,28 @@ const Admin = (props) => {
 
                 )}
                 <div className="gpedidosUser">
-                    <h1>LISTA PEDIDOS</h1>
+                    <h1>LISTA TODOS LOS PEDIDOS</h1>
                     {pedidos.map((pedido) => {
-                        // donde aparecen los pedidos en el perfil de usuario
+                        // donde aparecen los pedidos en la vista admin
                         return (
 
                             <div className="pedidosUser" key={pedido.id}>
-                                <p class="pedidoColor">id: {pedido.id}</p>
-                                <p class="pedidoColor">Peliculaid: {pedido.peliculaId}</p>
-                                <p class="pedidoColor">Usuarioid:{pedido.usuarioId}</p>
-                                <p class="pedidoColor">Fecha A.:{pedido.fecha_alquiler}</p>
-                                <p class="pedidoColor">Fecha D.:{pedido.fecha_devolucion}</p>
+                                <p className="pedidoColor">id: {pedido.id}</p>
+                                <p className="pedidoColor">Peliculaid: {pedido.peliculaId}</p>
+                                <p className="pedidoColor">Usuarioid:{pedido.usuarioId}</p>
+                                <p className="pedidoColor">Fecha A.:{pedido.fecha_alquiler}</p>
+                                <p className="pedidoColor">Fecha D.:{pedido.fecha_devolucion}</p>
+                                
 
                             </div>
+                            
                         )
 
                     })}
                 </div>
             </div>
             <div>
-                <div className="unLog" onClick={() => logOut()}>LOGOUT</div>
+            <div className="unLog" onClick={() => logOut()}>LOGOUT</div>
             </div>
         </div>
     )
