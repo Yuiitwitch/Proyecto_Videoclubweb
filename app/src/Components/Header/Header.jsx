@@ -9,12 +9,7 @@ import logo from '../../assets/img/blockbusterlogo.jpg'
 
 const Header = (props) => {
 
-    // const navigate = useNavigate();
 
-    // const cambioPantalla = (from) =>{
-    //     navigate(from)
-    // };
-        // console.log(props.credentials)
     if (props?.credentials?.usuario.rol == "usuario"){
     return (
         
