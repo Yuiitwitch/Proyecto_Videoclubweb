@@ -44,6 +44,10 @@ const Login = (props) => {
 
     }
 
+    const Registrar= () => {
+        navigate("/Register");
+    }
+
     return (
 
         <div className="designBottoml">
@@ -58,6 +62,7 @@ const Login = (props) => {
             <input className="input" placeholder="contraseña" type='password' name='contraseña' title='clave' onChange={manejadorInputs} maxlength='8' ></input>
             <div className="error">{msgError}</div>
             <div className="sendButton" onClick={() => logeame()}>Login</div>
+            <div>No tienes cuenta?<div  className="sendButton" onClick={() => Registrar()}>Registrate</div></div>
         </div>
         </div>
     )
