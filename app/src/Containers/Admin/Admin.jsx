@@ -60,7 +60,7 @@ const Admin = (props) => {
         <div>
             <Header />
             <div className="profileAdmin">
-                <div className="pedidosUser"><h1>LISTA DE USUARIOS REGISTRADOS</h1></div>
+                <div className="tituloUser"><h1>LISTA DE USUARIOS REGISTRADOS</h1></div>
                 {usuarios.map((usuario) => {
                     // donde aparecen los usuarios en la vista admin
                     return (
