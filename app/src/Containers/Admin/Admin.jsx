@@ -45,7 +45,7 @@ const Admin = (props) => {
 
     const recibeUsuarios = async () => {
         try {
-            let res = await axios.get(`https://proyecto-basededatosf.herokuapp.com/usuarios`,{
+            let res = await axios.get(`https://proyecto-basededatosf.herokuapp.com/usuarios`, {
                 headers: {
                     'Authorization': `Bearer ${props.credentials.token}`
                 }
@@ -58,21 +58,23 @@ const Admin = (props) => {
     }
     return (
         <div>
-            <Header/>
-            <div className="profileUser">
+            <Header />
+            <div className="profileAdmin">
+                <div className="pedidosUser"><h1>LISTA DE USUARIOS REGISTRADOS</h1></div>
                 {usuarios.map((usuario) => {
                     // donde aparecen los usuarios en la vista admin
                     return (
-                        
-                        <div className="pedidosUser"><h1>LISTA DE USUARIOS REGISTRADOS</h1>
-                        <div className="generalUsuarios" key={usuario.id}>
-                            <p className="pedidoColor">id: {usuario.id}</p>
-                            <p className="pedidoColor">Nombre: {usuario.nombre}</p>
-                            <p className="pedidoColor">Apellidos:{usuario.apellidos}</p>
-                            <p className="pedidoColor">Correo:{usuario.correo}</p>
-                            <p className="pedidoColor">Direccion:{usuario.direccion}</p>
+
+                        <div className="generalUsuarios">
+                            <div className="subUsuarios" key={usuario.id}>
+                                <p className="pedidoColor">id: {usuario.id}</p>
+                                <p className="pedidoColor">Nombre: {usuario.nombre}</p>
+                                <p className="pedidoColor">Apellidos:{usuario.apellidos}</p>
+                                <p className="pedidoColor">Correo:{usuario.correo}</p>
+                                <p className="pedidoColor">Direccion:{usuario.direccion}</p>
+                            </div>
                         </div>
-                        </div>
+
                     )
 
                 }
@@ -90,17 +92,17 @@ const Admin = (props) => {
                                 <p className="pedidoColor">Usuarioid:{pedido.usuarioId}</p>
                                 <p className="pedidoColor">Fecha A.:{pedido.fecha_alquiler}</p>
                                 <p className="pedidoColor">Fecha D.:{pedido.fecha_devolucion}</p>
-                                
+
 
                             </div>
-                            
+
                         )
 
                     })}
                 </div>
             </div>
             <div>
-            <div className="unLog" onClick={() => logOut()}>LOGOUT</div>
+                <div className="unLog" onClick={() => logOut()}>LOGOUT</div>
             </div>
         </div>
     )
